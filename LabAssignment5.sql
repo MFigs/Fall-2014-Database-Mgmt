@@ -5,7 +5,9 @@
 
 -- Query 1
 select distinct a.city
-from agents a, orders o, customers c
+from agents a, 
+     orders o, 
+	 customers c
 where a.aid = o.aid
 and o.cid = c.cid
 and c.name = 'Tiptop'
@@ -14,7 +16,10 @@ order by a.city ASC;
 
 -- Query 2
 select distinct o1.pid
-from agents a, orders o, orders o1, customers c
+from agents a, 
+     orders o, 
+	 orders o1, 
+	 customers c
 where o.aid  = a.aid
 and   o1.aid = a.aid
 and   o.cid  = c.cid
