@@ -7,7 +7,7 @@
 select distinct a.city
 from agents a, 
      orders o, 
-	 customers c
+     customers c
 where a.aid = o.aid
 and o.cid = c.cid
 and c.name = 'Tiptop'
@@ -18,8 +18,8 @@ order by a.city ASC;
 select distinct o1.pid
 from agents a, 
      orders o, 
-	 orders o1, 
-	 customers c
+     orders o1, 
+     customers c
 where o.aid  = a.aid
 and   o1.aid = a.aid
 and   o.cid  = c.cid
