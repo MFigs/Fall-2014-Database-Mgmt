@@ -7,19 +7,19 @@
 select distinct city
 from agents
 where aid in (select aid
-			  from orders
-	          where cid in (select cid
-			                from customers
-			                where name = 'Tiptop'
-		                   )
-	         );
+              from orders
+              where cid in (select cid
+                            from customers
+                            where name = 'Tiptop'
+                           )
+             );
 		 
 -- Query 2
 select distinct pid
 from orders
 where aid in (select aid
-	          from orders
-	          where cid in (select cid
+              from orders
+              where cid in (select cid
                             from customers
                             where city = 'Kyoto'
                            )
@@ -41,9 +41,9 @@ where cid not in (select cid
 select cid, name
 from customers
 where cid in (select cid
-	          from orders
-	          where pid = 'p01'
-	         )
+              from orders
+              where pid = 'p01'
+             )
 and   cid in (select cid
               from orders
               where pid = 'p07'
@@ -53,8 +53,8 @@ and   cid in (select cid
 select distinct pid
 from orders
 where cid in (select cid
-	          from orders
-	          where aid = 'a04'
+              from orders
+              where aid = 'a04'
              )
 order by pid ASC;
 		 
@@ -62,25 +62,25 @@ order by pid ASC;
 select name, discount
 from customers
 where cid in (select cid
-	          from orders
-	          where aid in (select aid
-			                from agents
-			                where city = 'Dallas'
-			               )
-	          or aid in (select aid
-			             from agents
-			             where city = 'Newark'
-			            )
-	         );
+              from orders
+              where aid in (select aid
+                            from agents
+                            where city = 'Dallas'
+                           )
+              or aid in (select aid
+                         from agents
+                         where city = 'Newark'
+                        )
+             );
 		 
 -- Query 7
 select *
 from customers
 where discount in (select discount
-		           from customers
-		           where city = 'Dallas'
-		          )
+                   from customers
+                   where city = 'Dallas'
+                  )
 or discount in (select discount
-		        from customers
-		        where city = 'Kyoto'
-	           );
+                from customers
+                where city = 'Kyoto'
+               );
