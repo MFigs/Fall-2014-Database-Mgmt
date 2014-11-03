@@ -71,8 +71,10 @@ and   o.cid = c.cid
 and   a.city = 'New York';
 
 -- Query 7
-select o.ordno, o.mon, o.cid, o.aid, o.pid, o.qty, o.dollars
+select o.*
 from orders o,
-     products p
+     products p,
+     customers c
 where o.pid = p.pid
-and   o.dollars != (p.priceUSD * o.qty);
+and o.cid = c.cid
+and   o.dollars != ((1 -(.01 * c.discount)) * (p.priceUSD * o.qty));
