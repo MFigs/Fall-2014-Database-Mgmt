@@ -96,7 +96,7 @@ CREATE TABLE StocksOwned (
 
 -- SQL REPORTS/QUERIES
 
-SELECT inv.investorID, p.firstName, p.lastName, sumStockVals.sum AS TotalStockValue
+SELECT inv.investorID, p.firstName, p.lastName, sumStockVals.sum AS TotalStockValueUSD
 FROM   Investors inv, 
        People p,
        (SELECT distinct id, sum(stockVal)
@@ -154,7 +154,7 @@ CREATE OR REPLACE VIEW StocksByIndustry AS
            i.industryName AS Industry,
            c.cID AS CompanyID,
            c.companyName AS CompanyName,
-           c.stockPriceUSD AS StockValue
+           c.stockPriceUSD AS StockValueUSD
     FROM   Industries i,
            Companies c,
            MarketRelations mr
